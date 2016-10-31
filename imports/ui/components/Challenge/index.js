@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Challenges } from '../../../startup/client/api-challenges.js';
+import { Challenges } from '../../../api/client/api-challenges.js';
 import { Meteor } from 'meteor/meteor';
 
 // Team component - represents a single team item
