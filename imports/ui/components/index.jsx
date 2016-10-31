@@ -1,16 +1,11 @@
 import React from 'react';
-
-const styles = {
-  whitening: {
-    color: 'white'
-  }
-}
+import Paper from 'material-ui/paper';
 
 export const Index = () => {
   return (
-    <div style={styles.whitening}>
-      <h1>RED</h1>
-      <h1>SMASH</h1>
+    <div>
+      <h1>REDREDREDREDREDREDREDREDREDREDREDREDREDREDREDREDREDRED</h1>
+      <h1>SMASHSMASHSMASHSMASHSMASHSMASHSMASHSMASHSMASHSMASHSMASH</h1>
     </div>
   )
 };
