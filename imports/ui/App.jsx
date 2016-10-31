@@ -1,6 +1,7 @@
 import React from 'react';
 import { Navigation } from './components/Navigation.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import Paper from 'material-ui/paper';
 
 const styles = {
   background: {
@@ -17,8 +18,10 @@ const styles = {
 export const App = ({ children }) => (
 
   <div style={styles.background}>
-    <AccountsUIWrapper />
-    {/* <Navigation /> */}
-    {children}
+    <Paper>
+      <AccountsUIWrapper />
+      {/* <Navigation /> */}
+      {children}
+    </Paper>
   </div>
 )
