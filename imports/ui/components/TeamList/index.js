@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
-import { Teams } from '../../../startup/client/api-teams.js';
+import { Teams } from '../../../api/api-teams.js';
 import { Meteor } from 'meteor/meteor';
 
 class TeamList extends Component {

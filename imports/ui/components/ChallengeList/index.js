@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
-import { Challenges } from '../../../startup/client/api-challenges.js';
+import { Challenges } from '../../../api/api-challenges.js';
 import { Meteor } from 'meteor/meteor';
 
 class ChallengeList extends Component {

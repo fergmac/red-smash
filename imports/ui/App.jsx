@@ -1,5 +1,4 @@
 import React from 'react';
-import { Navigation } from './components/Navigation.jsx';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
 import Paper from 'material-ui/paper';
 
