@@ -1,7 +1,9 @@
 import React from 'react';
 import { Navigation } from './components/Navigation.jsx';
+import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import Paper from 'material-ui/paper';
 
-const styles={
+const styles = {
   background: {
     backgroundColor: "darkred",
     height: '100vh',
@@ -13,9 +15,13 @@ const styles={
   },
 }
 
-export const App = ( { children } ) => (
+export const App = ({ children }) => (
+
   <div style={styles.background}>
-    {/* <Navigation /> */}
-    { children }
+    <Paper>
+      <AccountsUIWrapper />
+      {/* <Navigation /> */}
+      {children}
+    </Paper>
   </div>
 )
