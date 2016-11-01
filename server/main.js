@@ -29,6 +29,6 @@ if(!Meteor.users.find().count()) {
 });
 
   Meteor.publish('teams', function teamsPublication() {
-    return Meteor.users.find({}, { fields: { 'teams': 1, 'starCount': 1}});
+    return Meteor.users.find({});
   });
 
