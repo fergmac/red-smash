@@ -5968,7 +5968,7 @@ button.close {
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
-  line-break: auto;
+  /*line-break: auto;*/
   line-height: 1.42857143;
   text-align: left;
   text-align: start;
@@ -6086,7 +6086,7 @@ button.close {
   font-style: normal;
   font-weight: normal;
   letter-spacing: normal;
-  line-break: auto;
+  /*line-break: auto;*/
   line-height: 1.42857143;
   text-align: left;
   text-align: start;
@@ -6726,7 +6726,7 @@ button.close {
   }
 }
 .navbar-brand {
-  font-family: 'Lobster', cursive;
+  font-family: Roboto, sans-serif;
 }
 .navbar-default .badge {
   background-color: #fff;
@@ -6778,7 +6778,7 @@ textarea {
   color: #444444;
 }
 legend {
-  font-family: 'Lobster', cursive;
+  font-family: Roboto, sans-serif;
   color: #fff;
 }
 .has-warning .help-block,

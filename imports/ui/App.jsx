@@ -1,12 +1,17 @@
 import React from 'react';
 import AccountsUIWrapper from './AccountsUIWrapper.jsx';
-import Paper from 'material-ui/paper';
+// import Paper from 'material-ui/paper';
+
+// Accounts.ui.config({
+//   passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
+//   loginPath: '/',
+// });
 
 const styles = {
-  background: {
-    // backgroundColor: "darkred",
+  wrapper: {
     height: '100vh',
-    margin: '-16px -8px 0px -8px',
+    // margin: '-70px -8px 0px -8px',
+    margin: '-70px 0px 0px 0px',
     display: 'flex',
     flexFlow: 'column nowrap',
     justifyContent: 'center',
@@ -15,15 +20,17 @@ const styles = {
 }
 
 export const App = ({ children }) => (
-
-  <div style={styles.background}>
-  <button className="btn btn-primary">HEY FERGUS</button>
-  <button className="btn btn-success">HEY FERGUS</button>
-  <button className="btn btn-default">HEY FERGUS</button>
-  <button className="btn btn-warning">HEY FERGUS</button>
-  <button className="btn btn-danger">HEY FERGUS</button>
+  <div>
+    <div className="navbar">
       <AccountsUIWrapper />
-      {/* <Navigation /> */}
-      {children}
+    </div>
+    <div style={styles.wrapper}>
+      <div className="row">
+        <div className="col-lg-12 col-md-12 col-sm-12 text-center">
+          {/* <Navigation /> */}
+          {children}
+        </div>
+      </div>
+    </div>
   </div>
 )
