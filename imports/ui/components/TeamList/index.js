@@ -6,7 +6,6 @@ import { Meteor } from 'meteor/meteor';
 import Teams from '../Teams';
 
 class TeamList extends Component {
-  
     render() {
         return (
           <div>
