@@ -4,6 +4,13 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../../../api/collections.js'
 
+const styles =  {
+    reflectSubmit: {
+        display: 'flex',
+        flexFlow: 'column nowrap'
+    }
+}
+
 class ChallengeDetails extends Component {
     render() {
         console.log(this.props)
@@ -17,12 +24,14 @@ class ChallengeDetails extends Component {
                     <div>{this.props.challenges[0].starCount}</div>
                 </div>
                 : '' }
-                 {/* {this.props.challenges.map((challenge, index) => (<div key={index}> */}
-                  
-                </div>
-                <h2>Reflection</h2>
-              {/*  <input type="text" value="Reflect" />
-                </div>  */}
+                    <div>
+                        <h2>Reflection</h2>
+                        <div style={styles.reflectSubmit}>
+                        <textarea></textarea>
+                        <input type="submit" value="Submit"></input>
+                        </div>
+                    </div>
+                </div>  
             </div>
         );
     }
