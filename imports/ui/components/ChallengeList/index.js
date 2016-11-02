@@ -3,7 +3,7 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../../../api/collections.js'
-import Challenge from '../Challenges';
+import Challenge from '../Challenge';
 
 class ChallengeList extends Component {
     render() {
@@ -27,3 +27,5 @@ export default createContainer(() => {
     challenges: Challenges.find().fetch(),
   };
 }, ChallengeList);
+
+         
