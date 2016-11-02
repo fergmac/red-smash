@@ -1,5 +1,5 @@
 import React from 'react';
-import AccountsUIWrapper from './AccountsUIWrapper.jsx';
+import AccountsUIWrapper from './components/AccountsUIWrapper/';
 // import Paper from 'material-ui/paper';
 
 // Accounts.ui.config({
