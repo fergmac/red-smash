@@ -1,35 +1,40 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Modal, Button } from 'react-bootstrap';
+import UserModal from '../UserModal/';
 
-const styles = {
-  bigStar: {
-    fontSize: '40px',
-    color: 'gold'
-  }
-}
 
 export class UserViewer extends Component {
+  constructor() {
+    super()
+    this.state = {
+      showModal: false
+    }
+  }
+
+  close() {
+    this.setState({ showModal: false });
+  }
+
+  open() {
+    this.setState({ showModal: true });
+  }
+
   render() {
     return (
       <div>
-        <h1>Franz Kafka</h1>
-        <div className="row">
-          <div className="col-lg-3"></div>
-          <div className="col-lg-2">
-            <img className="img img-circle img-thumbnail" src="https://www.gravatar.com/avatar/205e460b479e2e5b48aec07710c08d50" />
-            <div id="user-star-container"><span style={styles.bigStar}>★</span> x 105<br />47th (of 72)</div>
-          </div>
-          <div className="col-lg-4">
-            <div className="well well-sm"><h4>AppDev</h4></div>
-            <div className="well well-sm"><h4>is happy</h4></div>
-            <div className="well well-sm"><h4>and so is</h4></div>
-            <div className="well well-sm"><h4>tree sappy</h4></div>
-          </div>
-          <div className="col-lg-3"></div>
-        </div>
+        <p>Click to get the full Modal experience!</p>
+
+        <Button
+          bsStyle="primary"
+          bsSize="large"
+          onClick={this.open.bind(this)}
+          >
+          View Profile
+        </Button>
+
+        <UserModal close={this.close.bind(this)} showModal={this.state.showModal} />
       </div>
     );
   }
 }
-
-export default UserViewer;
