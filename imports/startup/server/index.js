@@ -1,10 +1,30 @@
+// Meteor.startup(() => {
+//   // code to run on server at startup
+// if(!Meteor.users.find().count()) {
+//   for(let i = 0; i < 4; i++) {
 
-// export default Accounts.onCreateUser((options, user) => {
+//     var fakeUser = Fake.user({
+//         fields: ['name', 'username', 'emails.address'],
+//     });
 
-//   user.challenges = []
-//   user.starCount = 0
-// //   user.team = options.team;
+//   fakeUser.teamId = Fake.color()
+//   fakeUser.starCount = Math.floor(Math.random(5));
+//   fakeUser.challengesCompleted = []
 
-//   // Don't forget to return the new user object at the end!
-//   return user;
+//   Meteor.users.insert(fakeUser);
+//     }
+//   }
+// if(!Challenges.find().count()) {
+//   for(let i = 0; i < 5; i++) {
+
+//     var fakeChallenge = {}
+
+//     fakeChallenge.name = Fake.sentence()
+//     fakeChallenge.description = Fake.sentence()
+//     fakeChallenge.starCount = 5
+//     fakeChallenge.winners = []
+
+//      Challenges.insert(fakeChallenge);
+//     }
+//   }
 // });
