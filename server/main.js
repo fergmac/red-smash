@@ -15,12 +15,12 @@ if(!Meteor.users.find().count()) {
   for(let i = 0; i < 4; i++) {
 
     var fakeUser = Fake.user({
-        fields: ['name', 'username', 'emails.address'],
+        fields: ['username', 'emails.address'],
     });
 
   fakeUser.teamId = Fake.color()
   fakeUser.starCount = Math.floor(Math.random(5));
-  fakeUser.challengesCompleted = []
+  fakeUser.challenges = []
 
   Meteor.users.insert(fakeUser);
     }
@@ -40,10 +40,14 @@ if(!Challenges.find().count()) {
   }
 });
   Meteor.publish('teams', function teamsPublication() {
-    return Meteor.users.find({});
+    return Meteor.users.find({}, {fields: {username: 1, starCount: 1}});
   });
-   Meteor.publish('challenges', function challengesPublication() {
-    return Challenges.find({});
+   Meteor.publish('challenges', function challengesPublication(id) {
+     if(id) {
+       return Challenges.find({_id: id});
+     } else {
+       return Challenges.find({});
+     }
   });
 // Meteor.methods({
 //   'challenges.insert'(text) {
