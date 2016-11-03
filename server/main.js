@@ -20,7 +20,14 @@ if(!Meteor.users.find().count()) {
 
   fakeUser.teamId = Fake.color()
   fakeUser.starCount = Math.floor(Math.random(5));
-  fakeUser.challenges = []
+  fakeUser.challenges = Fake.challenges([
+    {
+      reflection: 'i love this',
+      starsEarned: Math.floor(Math.random(5)),
+      challengeName: 'take a selfie',
+      createAt: new Date(),
+    },
+  ]);
 
   Meteor.users.insert(fakeUser);
     }
