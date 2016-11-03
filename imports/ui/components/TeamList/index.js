@@ -20,13 +20,15 @@ class TeamList extends Component {
           teamStats[i].players.push(userArray[j])
         }
       }
+      // TODO: add the sort here for the players by score
     }
+    // TODO: add the sort here for the teams by score
     return teamStats
   }
 
   render() {
-    console.log(this._teamStarsFinder());
     const teamData = this._teamStarsFinder()
+    console.log(teamData);
 
     return (
       <div className="container">

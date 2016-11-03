@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor';
 export default class Team extends Component {
 
 
-  
+
   render() {
     let face = this.props.team
     // console.log(JSON.stringify(face))
@@ -13,6 +13,11 @@ export default class Team extends Component {
       <div className="row">
         <div className="col-xs-4">
           <p>{this.props.team.teamId}</p>
+          <ul className="list-group">
+            {this.props.team.players.map((player, index) => {
+              return (<li key={index} className="list-group-item">{player.username} | {player.starCount}</li>)
+            })}
+          </ul>
         </div>
         <div className="col-xs-8">
           <p>{this.props.team.starCount}</p>
