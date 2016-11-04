@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import { Challenges } from '../../../api/collections.js'
+import { Challenges } from '../../../api/collections.js';
+import { browserHistory } from 'react-router';
 // import Link from 'react-router';
 // import ChallengeList from '../ChallengeList';
 
@@ -14,39 +15,55 @@ const styles =  {
 }
 
 class ChallengeDetails extends Component {
+    // constructor () {
+    //     super()
 
+    //     this.state = {
+    //         reflection: '',
+    //     }
+    // }
     handleSubmit(event) {
     event.preventDefault();
- 
+    console.log(this.refs);
     // Find the text field via the React ref
-    const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
+    // const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
  
     //  Meteor.call('reflections.insert', text);
-    Meteor.users.update({id: currentUser._id}, { $push: { 
-      challenges: {
+    Meteor.call('updateUserChallenges', {
+        userId: Meteor.userId(),
+        challengeId: this.props.challenges[0]._id,
         reflection: this.refs.textInput.value,
-        starsEarned: Math.floor(Math.random(5)),
+        starsEarned: 7, //change this to like below
         challengeName: this.props.challenges[0].name,
-        createdAt: {
-          $currentDate: {
-            lastModified: true,
-          }
-        }
+        username: Meteor.users.find({_id: Meteor.userId()}).fetch()[0].username
+    });
 
-    } }, $inc: { starCount: 1 }})
+    browserHistory.push('/leaderboard');
+    // Meteor.users.update({id: currentUser._id}, { $push: { 
+    //   challenges: {
+    //     reflection: this.refs.textInput.value,
+    //     starsEarned: Math.floor(Math.random(5)),
+    //     challengeName: this.props.challenges[0].name,
+    //     createdAt: {
+    //       $currentDate: {
+    //         lastModified: true,
+    //       }
+    //     }
 
-    Challenges.update({id: this.props.challenges[0]._id}, { $push: {
-        winners: {
-          username: currentUser.username,
-          userId: currentUser._id,
-          starCount: Math.floor(Math.random(5)),
-          createdAt: {
-            $currentDate: {
-              lastModified: true,
-            }
-          }
-        }
-    } })
+    // } }, $inc: { starCount: 1 }})
+
+    // Challenges.update({id: this.props.challenges[0]._id}, { $push: {
+    //     winners: {
+    //       username: currentUser.username,
+    //       userId: currentUser._id,
+    //       starCount: Math.floor(Math.random(5)),
+    //       createdAt: {
+    //         $currentDate: {
+    //           lastModified: true,
+    //         }
+    //       }
+    //     }
+    // } })
   //   Users.update({id: currentUser }, { $push: {
   //       challenges: {
   //         reflection: 'i love this',
@@ -69,7 +86,7 @@ class ChallengeDetails extends Component {
   //   });
 
     // Clear form
-    ReactDOM.findDOMNode(this.refs.textInput).value = '';
+    // ReactDOM.findDOMNode(this.refs.textInput).value = '';
   }
 
     render() {
@@ -92,12 +109,11 @@ class ChallengeDetails extends Component {
                         <form style={styles.reflectSubmit} onSubmit={this.handleSubmit.bind(this)} >
                             <textarea
                                 type="text"
-                                // ref="textInput"
+                                ref="textInput"
                                 placeholder="Reflect"
                             />
                             <input
                                 type="submit"
-                                ref="textInput"
                                 placeholder="Submit"
                             />
                         </form> : ''} 

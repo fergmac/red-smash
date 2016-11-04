@@ -6,58 +6,98 @@ Accounts.onCreateUser((options, user) => {
 
   user.challenges = []
   user.starCount = 0
-//   user.team = options.team;
+  //   user.team = options.team;
   return user;
 });
 Meteor.startup(() => {
   // code to run on server at startup
-if(!Meteor.users.find().count()) {
-  for(let i = 0; i < 4; i++) {
+  if (!Meteor.users.find().count()) {
+    for (let i = 0; i < 4; i++) {
 
-    var fakeUser = Fake.user({
+      var fakeUser = Fake.user({
         fields: ['username', 'emails.address'],
-    });
+      });
 
-  fakeUser.teamId = Fake.color()
-  fakeUser.starCount = Math.floor(Math.random(5));
-  fakeUser.challenges = Fake.challenges([
-    {
-      reflection: 'i love this',
-      starsEarned: Math.floor(Math.random(5)),
-      challengeName: 'take a selfie',
-      createAt: new Date(),
-    },
-  ]);
+      fakeUser.teamId = Fake.color()
+      fakeUser.starCount = Math.floor(Math.random(5));
+      fakeUser.challenges = Fake.challenges([
+        {
+          reflection: 'i love this',
+          starsEarned: Math.floor(Math.random(5)),
+          challengeName: 'take a selfie',
+          createAt: new Date(),
+        },
+      ]);
 
-  Meteor.users.insert(fakeUser);
+      Meteor.users.insert(fakeUser);
     }
   }
-if(!Challenges.find().count()) {
-  for(let i = 0; i < 5; i++) {
+  if (!Challenges.find().count()) {
+    for (let i = 0; i < 5; i++) {
 
-    var fakeChallenge = {}
+      var fakeChallenge = {}
 
-    fakeChallenge.name = Fake.sentence()
-    fakeChallenge.description = Fake.sentence()
-    fakeChallenge.starCount = 5
-    fakeChallenge.winners = []
+      fakeChallenge.name = Fake.sentence()
+      fakeChallenge.description = Fake.sentence()
+      fakeChallenge.starCount = 5
+      fakeChallenge.winners = []
 
-     Challenges.insert(fakeChallenge);
+      Challenges.insert(fakeChallenge);
     }
   }
 });
-  Meteor.publish('teams', function teamsPublication() {
-    return Meteor.users.find({},  {fields: {'username': 1, 'starCount': 1, 'teamId': 1}});
-  });
-   Meteor.publish('challenges', function challengesPublication(id) {
-     if(id) {
-       return Challenges.find({_id: id});
-     } else {
-       return Challenges.find({});
-     }
-  });
+Meteor.publish('teams', function teamsPublication() {
+  return Meteor.users.find({}, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
+});
+Meteor.publish('challenges', function challengesPublication(id) {
+  if (id) {
+    return Challenges.find({ _id: id });
+  } else {
+    return Challenges.find({});
+  }
+});
+if (Meteor.isServer) {
+  Meteor.startup(function () {
+    return Meteor.methods({
+      updateUserChallenges: function (myChallenge) {
+        console.log(myChallenge);
+        Meteor.users.update({ _id: myChallenge.userId }, {
+          $push: {
+            challenges: {
+              reflection: myChallenge.reflection,
+              starsEarned: myChallenge.starsEarned,
+              challengeName: myChallenge.challengeName,
+              completedAt: new Date(),
+            }
+          }
+        })
+        Meteor.users.update({ _id: myChallenge.userId }, {
+          $inc: { starCount: myChallenge.starsEarned }
+        })
+        Challenges.update({ _id: myChallenge.challengeId }, {
+          $push: {
+            winners: {
+              username: myChallenge.username,
+              userId:  myChallenge.userId,
+              starsEarned: myChallenge.starsEarned,
+              completedAt: new Date(),
+            }
+          }
+
+        })
+        return;
+      },
+      incrementStarCount: function () {
+        // return Tickets.remove({PLU: "0000000000000"});
+      },
+      updateChallengeWinners: function () {
+
+      }
+    });
+  })
+}
 // Meteor.methods({
-//   'challenges.insert'(text) {
+//   'Meteor.users.update'(text) {
 //     check(text, String);
 //     // add update method if user id matches user id update
 //     Challenges.insert({
