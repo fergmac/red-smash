@@ -40,7 +40,7 @@ if(!Challenges.find().count()) {
   }
 });
   Meteor.publish('teams', function teamsPublication() {
-    return Meteor.users.find({}, {fields: {username: 1, starCount: 1}});
+    return Meteor.users.find({},  {fields: {'username': 1, 'starCount': 1, 'teamId': 1}});
   });
    Meteor.publish('challenges', function challengesPublication(id) {
      if(id) {
