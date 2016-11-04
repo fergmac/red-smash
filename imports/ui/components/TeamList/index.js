@@ -4,7 +4,23 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import Team from '../Team';
 
+const sortByKey = (key) => (a,b) => {
+  switch(true) {
+    case a[key] < b[key]:
+      return 1;
+    case a[key] > b[key]:
+      return -1;
+    default:
+      return 0;
+  }
+}
+
 class TeamList extends Component {
+  //  
+  // it will be necessary to refactor this at some point, since this of course won't scale
+  // an idea might be generating a new Mongo collection called "teams" or something, and
+  // get it to regenerate each time there's a change to the users collection, or just find
+  // a way for aggregates to work in Meteor-React, which would be ideal
   _teamStarsFinder() {
     let teamStats = [...new Set(
       this.props.teams
@@ -20,9 +36,10 @@ class TeamList extends Component {
           teamStats[i].players.push(userArray[j])
         }
       }
-      // TODO: add the sort here for the players by score
+      teamStats[i].players.sort(sortByKey('starCount'))
     }
-    // TODO: add the sort here for the teams by score
+    teamStats.sort(sortByKey('starCount'))
+
     return teamStats
   }
 
