@@ -2,7 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import { Challenges } from '../../../api/collections.js'
+import { Challenges } from '../../../api/collections.js';
+import { browserHistory } from 'react-router';
 // import Link from 'react-router';
 // import ChallengeList from '../ChallengeList';
 
@@ -36,6 +37,8 @@ class ChallengeDetails extends Component {
         challengeName: this.props.challenges[0].name,
         username: Meteor.users.find({_id: Meteor.userId()}).fetch()[0].username
     });
+
+    browserHistory.push('/leaderboard');
     // Meteor.users.update({id: currentUser._id}, { $push: { 
     //   challenges: {
     //     reflection: this.refs.textInput.value,
