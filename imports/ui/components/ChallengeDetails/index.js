@@ -22,7 +22,7 @@ class ChallengeDetails extends Component {
     const text = ReactDOM.findDOMNode(this.refs.textInput).value.trim();
  
     //  Meteor.call('reflections.insert', text);
-    Users.update({id: currentUser._id}, { $push: { 
+    Meteor.users.update({id: currentUser._id}, { $push: { 
       challenges: {
         reflection: this.refs.textInput.value,
         starsEarned: Math.floor(Math.random(5)),
@@ -73,6 +73,7 @@ class ChallengeDetails extends Component {
   }
 
     render() {
+      
         console.log(this.props)
         return(
             <div>
@@ -115,6 +116,7 @@ ChallengeDetails.propTypes = {
 }
 
 export default createContainer(({ params }) => {
+  console.log(Meteor.users);
     Meteor.subscribe('challenges', params.id);
     const challenges = Challenges.find({ _id: params.id }).fetch() || []; // pass params.id which also gets passed into publication so that we 
     return {                                                              // can get the challenge details of the specific challenge id Tracker magic going on here
