@@ -57,7 +57,7 @@ class TeamList extends Component {
         </div>
         <div className="row">
           <div className="col-lg-12">
-            {teamData.map((team, index) => (<Team team={team} key={index} />))}
+            {teamData.map((team, index) => (<Team team={team} key={index} arrayIndexNumber={teamData.indexOf(team)} />))}
           </div>
         </div>
       </div>
