@@ -1,5 +1,6 @@
 import React from 'react';
 import AccountsUIWrapper from './components/AccountsUIWrapper/';
+import NavBar from './components/NavBar';
 // import Paper from 'material-ui/paper';
 
 // Accounts.ui.config({
@@ -11,6 +12,7 @@ export const App = ({ children }) => (
   <div>
     <div className="navbar">
       <AccountsUIWrapper />
+     <NavBar />
     </div>
     <div className="container">
       <div className="row">
