@@ -15,17 +15,6 @@ const sortByKey = (key) => (a, b) => {
   }
 }
 
-const sortByPlayerKey = (key) => (a, b) => {
-  switch (true) {
-    case a.player[key] < b.player[key]:
-      return 1;
-    case a.player[key] > b.player[key]:
-      return -1;
-    default:
-      return 0;
-  }
-}
-
 class TeamList extends Component {
   //  
   // it will be necessary to refactor this at some point, since this of course won't scale
@@ -47,10 +36,8 @@ class TeamList extends Component {
             dtItem.starCount += uaItem.starCount
             dtItem.players.push(uaItem)
           }
-          console.log('dtItem ', dtItem)
-          return dtItem
+          return dtItem.players.sort(sortByKey('starCount'))
         })
-        console.log('dtAll', dtAll)
         return dtAll
       }, distinctTeams)
     return teamStats
