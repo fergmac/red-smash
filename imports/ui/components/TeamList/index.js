@@ -4,11 +4,22 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import Team from '../Team';
 
-const sortByKey = (key) => (a,b) => {
-  switch(true) {
+const sortByKey = (key) => (a, b) => {
+  switch (true) {
     case a[key] < b[key]:
       return 1;
     case a[key] > b[key]:
+      return -1;
+    default:
+      return 0;
+  }
+}
+
+const sortByPlayerKey = (key) => (a, b) => {
+  switch (true) {
+    case a.player[key] < b.player[key]:
+      return 1;
+    case a.player[key] > b.player[key]:
       return -1;
     default:
       return 0;
@@ -22,30 +33,31 @@ class TeamList extends Component {
   // get it to regenerate each time there's a change to the users collection, or just find
   // a way for aggregates to work in Meteor-React, which would be ideal
   _teamStarsFinder() {
-    let teamStats = [...new Set(
+    const distinctTeams = [...new Set(
       this.props.teams
         .map((user) => user.teamId))]
-      .map((team) => { return { teamId: team, starCount: 0, players: [] } })
+      .map((team) => {
+        return { teamId: team, starCount: 0, players: [] }
+      })
 
-    let userArray = this.props.teams
-
-    for (i = 0; i < teamStats.length; i++) {
-      for (j = 0; j < userArray.length; j++) {
-        if (userArray[j].teamId === teamStats[i].teamId) {
-          teamStats[i].starCount += userArray[j].starCount
-          teamStats[i].players.push(userArray[j])
-        }
-      }
-      teamStats[i].players.sort(sortByKey('starCount'))
-    }
-    teamStats.sort(sortByKey('starCount'))
-
+    const teamStats = distinctTeams
+      .reduce((dtAll, dtItem) => {
+        this.props.teams.reduce((uaAll, uaItem) => {
+          if (uaItem.teamId === dtItem.teamId) {
+            dtItem.starCount += uaItem.starCount
+            dtItem.players.push(uaItem)
+          }
+          console.log('dtItem ', dtItem)
+          return dtItem
+        })
+        console.log('dtAll', dtAll)
+        return dtAll
+      }, distinctTeams)
     return teamStats
   }
 
   render() {
-    const teamData = this._teamStarsFinder()
-    console.log(teamData);
+    const teamData = this._teamStarsFinder().sort(sortByKey('starCount'))
 
     return (
       <div className="container">
