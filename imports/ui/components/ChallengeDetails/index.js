@@ -26,7 +26,8 @@ const styles = {
     },
     reflect: {
         marginTop: '5rem',
-        marginBottom: '5rem'
+        marginBottom: '5rem',
+        width: '800px'
     }
 }
 
@@ -133,11 +134,10 @@ class ChallengeDetails extends Component {
                                         type="text"
                                         ref="textInput"
                                         placeholder="Reflect"
+                                        rows="10"
                                         style={styles.reflect}
                                         />
-                                    <ButtonToolbar>
-                                        <Button bsStyle="primary" bsSize="large" active >Submit</Button>
-                                    </ButtonToolbar>
+                                    <button className="btn btn-success btn-lg">Submit</button>
                                 </form> : ''}
                         </div>
                     </div>
