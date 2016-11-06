@@ -51,8 +51,9 @@ Meteor.startup(() => {
 });
 
 Meteor.publish('teams', function teamsPublication() {
-  return Meteor.users.find({}, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
+  return Meteor.users.find({ teamId: { $exists: true } }, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
 });
+
 Meteor.publish('challenges', function challengesPublication(id) {
   if (id) {
     return Challenges.find({ _id: id });
@@ -60,6 +61,7 @@ Meteor.publish('challenges', function challengesPublication(id) {
     return Challenges.find({});
   }
 });
+
 if (Meteor.isServer) {
   Meteor.startup(function () {
     return Meteor.methods({
@@ -82,7 +84,7 @@ if (Meteor.isServer) {
           $push: {
             winners: {
               username: myChallenge.username,
-              userId:  myChallenge.userId,
+              userId: myChallenge.userId,
               starsEarned: myChallenge.starsEarned,
               completedAt: new Date(),
             }
@@ -100,17 +102,6 @@ if (Meteor.isServer) {
     });
   })
 }
-
-  Meteor.publish('teams', function teamsPublication() {
-    return Meteor.users.find({teamId: {$exists: true}},  {fields: {'username': 1, 'starCount': 1, 'teamId': 1}});
-  });
-   Meteor.publish('challenges', function challengesPublication(id) {
-     if(id) {
-       return Challenges.find({_id: id});
-     } else {
-       return Challenges.find({});
-     }
-  });
 
 // Meteor.methods({
 //   'Meteor.users.update'(text) {
