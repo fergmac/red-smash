@@ -36,17 +36,66 @@ Meteor.startup(() => {
     }
   }
   if (!Challenges.find().count()) {
-    for (let i = 0; i < 5; i++) {
+    Challenges.insert(
+      {
+        name: "Selfie",
+        description: "Take a selfie with someone you don't know yet.",
+        starCount: 5,
+        winners: []
+      }
+    )
+    Challenges.insert(
+      {
+        name: "Network",
+        description: "Go to a networking event with a fellow classmate.",
+        starCount: 5,
+        winners: []
+      }
+    )    
+    Challenges.insert(
+      {
+        name: "Talent",
+        description: "Share one of your many talents with a fellow classmate.",
+        starCount: 5,
+        winners: []
+      }
+    )    
+    Challenges.insert(
+      {
+        name: "Tutor",
+        description: "Tutor a friend on something you know that they want to understand better.",
+        starCount: 5,
+        winners: []
+      }
+    )    
+    Challenges.insert(
+      {
+        name: "Hugs",
+        description: "Give Kevin Kevin a hug.",
+        starCount: 5,
+        winners: []
+      }
+    )    
+    Challenges.insert(
+      {
+        name: "Walk/Ride",
+        description: "Walk and or ride your bike to school for a full week.",
+        starCount: 5,
+        winners: []
+      }
+    )    
 
-      var fakeChallenge = {}
+    // for (let i = 0; i < 5; i++) {
 
-      fakeChallenge.name = Fake.sentence()
-      fakeChallenge.description = Fake.sentence()
-      fakeChallenge.starCount = 5
-      fakeChallenge.winners = []
+    //   var fakeChallenge = {}
 
-      Challenges.insert(fakeChallenge);
-    }
+    //   fakeChallenge.name = Fake.sentence()
+    //   fakeChallenge.description = Fake.sentence()
+    //   fakeChallenge.starCount = 5
+    //   fakeChallenge.winners = []
+
+    //   Challenges.insert(fakeChallenge);
+    //   }
   }
 });
 
