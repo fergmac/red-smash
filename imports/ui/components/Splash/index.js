@@ -3,9 +3,8 @@ import Paper from 'material-ui/paper';
 
 const styles = {
   wrapper: {
-    height: '100vh',
+    height: '500px',
     // margin: '-70px -8px 0px -8px',
-    margin: '-70px 0px 0px 0px',
     display: 'flex',
     flexFlow: 'column nowrap',
     justifyContent: 'center',
@@ -14,7 +13,7 @@ const styles = {
   giant: {
     fontSize: '20vw',
     // transform: 'rotate(45deg)'
-  }
+  },
 }
 
 export default class Splash extends Component {
