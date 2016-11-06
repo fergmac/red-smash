@@ -8,11 +8,17 @@ import NavBar from './components/NavBar';
 //   loginPath: '/',
 // });
 
+const styles = {
+  navContainer: {
+    minHeight: '200px',
+  },
+}
+
 export const App = ({ children }) => (
   <div>
     <div className="navbar">
       <AccountsUIWrapper />
-     <NavBar />
+      <NavBar />
     </div>
     <div className="container">
       <div className="row">
