@@ -1,12 +1,15 @@
 import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../imports/api/collections.js'
+import { Accounts } from 'meteor/accounts-base';
+
 // import '/imports/startup/server';
 // import '../imports/api/api-teams.js';
 Accounts.onCreateUser((options, user) => {
 
   user.challenges = []
   user.starCount = 0
-  //   user.team = options.team;
+  user.teamId = 'Unassigned'
+
   return user;
 });
 Meteor.startup(() => {
@@ -46,6 +49,7 @@ Meteor.startup(() => {
     }
   }
 });
+
 Meteor.publish('teams', function teamsPublication() {
   return Meteor.users.find({}, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
 });
@@ -96,6 +100,18 @@ if (Meteor.isServer) {
     });
   })
 }
+
+  Meteor.publish('teams', function teamsPublication() {
+    return Meteor.users.find({teamId: {$exists: true}},  {fields: {'username': 1, 'starCount': 1, 'teamId': 1}});
+  });
+   Meteor.publish('challenges', function challengesPublication(id) {
+     if(id) {
+       return Challenges.find({_id: id});
+     } else {
+       return Challenges.find({});
+     }
+  });
+
 // Meteor.methods({
 //   'Meteor.users.update'(text) {
 //     check(text, String);

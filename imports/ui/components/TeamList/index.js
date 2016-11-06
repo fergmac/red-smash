@@ -4,8 +4,8 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import Team from '../Team';
 
-const sortByKey = (key) => (a,b) => {
-  switch(true) {
+const sortByKey = (key) => (a, b) => {
+  switch (true) {
     case a[key] < b[key]:
       return 1;
     case a[key] > b[key]:
@@ -43,21 +43,50 @@ class TeamList extends Component {
     return teamStats
   }
 
+
+  // the code below is an example of a purely functional way of accomplishing above… BUT…
+  // it's not complete because of an error with tracker's return on the currentUser being
+  // inconsistent with the teams subscription (which comes from the users collection)…
+  // this will have to be fixed, so let this server as a starting point :
+  // _teamStarsFinder() {
+  //   // TODO: this should get fixed so that the current user works… booo… tracker
+
+  //   const distinctTeams = [...new Set(
+  //     this.props.teams
+  //       .map((user) => user.teamId))]
+  //     .map((team) => {
+  //       return { teamId: team, starCount: 0, players: [] }
+  //     })
+
+  //   const teamStats = distinctTeams
+  //     .reduce((dtAll, dtItem) => {
+  //       this.props.teams.reduce((uaAll, uaItem) => {
+  //         if (uaItem.teamId === dtItem.teamId) {
+  //           dtItem.starCount += uaItem.starCount
+  //           dtItem.players.push(uaItem)
+  //         }
+  //         return dtItem.players.sort(sortByKey('starCount'))
+  //       })
+  //       return dtAll
+  //     }, distinctTeams)
+  //   return teamStats.sort(sortByKey('starCount'))
+  // }
+
+
   render() {
+    console.log(this.props.teams)
     const teamData = this._teamStarsFinder()
-    console.log(teamData);
 
     return (
       <div className="container">
         <div className="row">
-          {/* <button className="btn btn-default">Click to Challenge</button> */}
           <div className="col-lg-12">
             <h1>Leader Board</h1>
           </div>
         </div>
         <div className="row">
-          <div className="col-lg-12">
-            {teamData.map((team, index) => (<Team team={team} key={index} />))}
+          <div className="col-md-12 offset-lg-6">
+            {teamData.map((team, index) => (<Team team={team} key={index} arrayIndexNumber={teamData.indexOf(team)} />))}
           </div>
         </div>
       </div>
@@ -72,6 +101,6 @@ TeamList.propTypes = {
 export default createContainer(() => {
   Meteor.subscribe('teams');
   return {
-    teams: Meteor.users.find({}, { username: 1, starCount: 1 }).fetch(),
+    teams: Meteor.users.find({}, { username: 1, starCount: 1, teamId: 1 }).fetch(),
   };
 }, TeamList);
