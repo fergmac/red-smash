@@ -2,29 +2,9 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-// import Team from '../Team';
+import PlayersTable from '../PlayersTable';
 import { Pie } from 'react-chartjs';
-
-// a silly little function to add a suffix to the end of a number (e.g. '21' to '21st')
-const numberSuffixer = (num) => {
-  switch ((num % 100).toString().substr(0, 1)) {
-    case '1':
-      if (num > 1) {
-        return num + 'th'
-      }
-    default:
-      switch (num % 10) {
-        case 1:
-          return num + 'st'
-        case 2:
-          return num + 'nd'
-        case 3:
-          return num + 'rd'
-        default:
-          return num + 'th'
-      }
-  }
-}
+import { sortByKey } from '../../../Functions'
 
 const themeColours = {
   default: '#9B121E',
@@ -33,7 +13,6 @@ const themeColours = {
   danger: '#F0D64E',
   warning: '#222222',
 }
-
 
 const chartColours = [
   themeColours.default,
@@ -51,18 +30,9 @@ const pieOptions = {
   // legend.onClick()
 }
 
-const sortByKey = (key) => (a, b) => {
-  switch (true) {
-    case a[key] < b[key]:
-      return 1;
-    case a[key] > b[key]:
-      return -1;
-    default:
-      return 0;
-  }
-}
 
-class TeamList extends Component {
+
+class LeaderBoard extends Component {
   //  
   // it will be necessary to refactor this at some point, since this of course won't scale
   // an idea might be generating a new Mongo collection called "teams" or something, and
@@ -164,27 +134,7 @@ class TeamList extends Component {
         </div>
         <div className="row">
           <div className="col-md-12 offset-lg-6">
-            <table className="table table-striped">
-              <thead>
-                <tr className="face">
-                  <th className="text-left">Username</th>
-                  <th className="text-left">Team</th>
-                  <th className="text-left">Stars</th>
-                  <th className="text-left">Overall Rank</th>
-                </tr>
-              </thead>
-              <tbody>
-                {this.props.teams.sort(sortByKey('starCount')).map((playerItem, index) => {
-                  return (
-                    <tr key={index} >
-                      <td className="text-left">{playerItem.username}</td>
-                      <td className="text-left">{playerItem.teamId}</td>
-                      <td className="text-left">{playerItem.starCount}</td>
-                      <td className="text-left">{numberSuffixer(index + 1)}</td>
-                    </tr>)
-                })}
-              </tbody>
-            </table>
+          <PlayersTable players={this.props.teams} />
           </div>
         </div>
       </div>
@@ -192,7 +142,7 @@ class TeamList extends Component {
   };
 }
 
-TeamList.propTypes = {
+LeaderBoard.propTypes = {
   teams: PropTypes.array.isRequired,
 }
 
@@ -201,4 +151,4 @@ export default createContainer(() => {
   return {
     teams: Meteor.users.find({}, { username: 1, starCount: 1, teamId: 1 }).fetch(),
   };
-}, TeamList);
+}, LeaderBoard);
