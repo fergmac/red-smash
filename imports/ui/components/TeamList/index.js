@@ -2,8 +2,29 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-import Team from '../Team';
+// import Team from '../Team';
 import { Pie } from 'react-chartjs';
+
+// a silly little function to add a suffix to the end of a number (e.g. '21' to '21st')
+const numberSuffixer = (num) => {
+  switch ((num % 100).toString().substr(0, 1)) {
+    case '1':
+      if (num > 1) {
+        return num + 'th'
+      }
+    default:
+      switch (num % 10) {
+        case 1:
+          return num + 'st'
+        case 2:
+          return num + 'nd'
+        case 3:
+          return num + 'rd'
+        default:
+          return num + 'th'
+      }
+  }
+}
 
 const themeColours = {
   default: '#9B121E',
@@ -21,24 +42,6 @@ const chartColours = [
   themeColours.danger,
   themeColours.warning,
 ]
-
-const colouring = {
-  default: {
-    backgroundColor: chartColours[0]
-  },
-  success: {
-    backgroundColor: chartColours[1]
-  },
-  info: {
-    backgroundColor: chartColours[2]
-  },
-  warning: {
-    backgroundColor: chartColours[3]
-  },
-  danger: {
-    backgroundColor: chartColours[4]
-  },
-}
 
 // global options variable
 const pieOptions = {
@@ -161,7 +164,27 @@ class TeamList extends Component {
         </div>
         <div className="row">
           <div className="col-md-12 offset-lg-6">
-            {teamData.map((team, index) => (<Team team={team} key={index} arrayIndexNumber={teamData.indexOf(team)} />))}
+            <table className="table table-striped">
+              <thead>
+                <tr className="face">
+                  <th className="text-left">Username</th>
+                  <th className="text-left">Team</th>
+                  <th className="text-left">Stars</th>
+                  <th className="text-left">Overall Rank</th>
+                </tr>
+              </thead>
+              <tbody>
+                {this.props.teams.map((playerItem, index) => {
+                  return (
+                    <tr key={index} >
+                      <td className="text-left">{playerItem.username}</td>
+                      <td className="text-left">{playerItem.teamId}</td>
+                      <td className="text-left">{playerItem.starCount}</td>
+                      <td className="text-left">{numberSuffixer(index + 1)}</td>
+                    </tr>)
+                })}
+              </tbody>
+            </table>
           </div>
         </div>
       </div>
