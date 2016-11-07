@@ -6832,3 +6832,15 @@ a.thumbnail.active {
 .popover {
   color: #444444;
 }
+
+.label-sm {
+  font-size: 12px;
+}
+
+.label-md {
+  font-size: 16px;
+}
+
+.label-lg {
+  font-size: 20px;
+}
