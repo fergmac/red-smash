@@ -16,7 +16,6 @@ export const renderRoutes = () => (
       <Route path="/user" component={UserViewer} />
       <Route path="/challenges" component={ChallengeList} />
       <Route path="/challenges/id/:id" component={ChallengeDetails} />
-    {/*  <Route path="/*" component={NotFoundPage} /> */}
     </Route>
   </Router>
 );
