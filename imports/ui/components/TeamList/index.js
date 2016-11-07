@@ -3,6 +3,21 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import Team from '../Team';
+import { Pie } from 'react-chartjs';
+
+const chartColours = [
+  '#9B121E',
+  '#CB3B46',
+  '#F0AD4E',
+  '#F0D64E',
+  '#222222'
+]
+
+// global options variable
+const pieOptions = {
+  responsive: true,
+  scaleBeginAtZero: true,
+}
 
 const sortByKey = (key) => (a, b) => {
   switch (true) {
@@ -43,6 +58,18 @@ class TeamList extends Component {
     return teamStats
   }
 
+  _pieFilling(teamData) {
+    const pieData = teamData.map((team, index) => {
+      return {
+        label: team.teamId,
+        color: chartColours[index],
+        highlight: chartColours[index],
+        value: team.starCount
+      }
+    })
+    return pieData
+  }
+
 
   // the code below is an example of a purely functional way of accomplishing above… BUT…
   // it's not complete because of an error with tracker's return on the currentUser being
@@ -74,14 +101,17 @@ class TeamList extends Component {
 
 
   render() {
-    console.log(this.props.teams)
+    // console.log(this.props.teams)
     const teamData = this._teamStarsFinder()
+    const pieData = this._pieFilling(teamData)
+    console.log(pieData)
 
     return (
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
             <h1>Leader Board</h1>
+            <Pie data={pieData} options={pieOptions} />
           </div>
         </div>
         <div className="row">
