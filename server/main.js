@@ -81,23 +81,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-<<<<<<< f92f67ea4f61f46fe4d4371c9f6482b6a9daae15
     )
-
-    // for (let i = 0; i < 5; i++) {
-
-    //   var fakeChallenge = {}
-
-    //   fakeChallenge.name = Fake.sentence()
-    //   fakeChallenge.description = Fake.sentence()
-    //   fakeChallenge.starCount = 5
-    //   fakeChallenge.winners = []
-
-    //   Challenges.insert(fakeChallenge);
-    //   }
-=======
-    )    
->>>>>>> remove commented out code
   }
 });
 
