@@ -2,8 +2,6 @@ import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../imports/api/collections.js'
 import { Accounts } from 'meteor/accounts-base';
 
-// import '/imports/startup/server';
-// import '../imports/api/api-teams.js';
 Accounts.onCreateUser((options, user) => {
 
   user.challenges = []
@@ -83,6 +81,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
+<<<<<<< f92f67ea4f61f46fe4d4371c9f6482b6a9daae15
     )
 
     // for (let i = 0; i < 5; i++) {
@@ -96,6 +95,9 @@ Meteor.startup(() => {
 
     //   Challenges.insert(fakeChallenge);
     //   }
+=======
+    )    
+>>>>>>> remove commented out code
   }
 });
 
@@ -156,16 +158,3 @@ if (Meteor.isServer) {
     });
   })
 }
-
-// Meteor.methods({
-//   'Meteor.users.update'(text) {
-//     check(text, String);
-//     // add update method if user id matches user id update
-//     Challenges.insert({
-//       text,
-//       createdAt: new Date(),
-//       challenge: this.challengeId,
-//       challengename: Meteor.challenge.findOne(this.challengeId).challengename,
-//     });
-//   },
-// });
