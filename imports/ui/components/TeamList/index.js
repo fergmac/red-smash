@@ -153,11 +153,11 @@ class TeamList extends Component {
             </div>
             <div className="col-lg-2 text-left container">
               <h3>Legend</h3>
-              <p><span className="label label-md label-primary">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 0 ? pieData[0].label : ''}</p>
-              <p><span className="label label-md label-success">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 1 ? pieData[1].label : ''}</p>
-              <p><span className="label label-md label-info">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 2 ? pieData[2].label : ''}</p>
-              <p><span className="label label-md label-warning">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 3 ? pieData[3].label : ''}</p>
-              <p><span className="label label-md label-danger">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 4 ? pieData[4].label : ''}</p>
+              <p><span className="label label-md label-primary">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 0 ? `${pieData[0].label} - ${pieData[0].value}` : ''}</p>
+              <p><span className="label label-md label-success">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 1 ? `${pieData[1].label} - ${pieData[1].value}` : ''}</p>
+              <p><span className="label label-md label-info">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 2 ? `${pieData[2].label} - ${pieData[2].value}` : ''}</p>
+              <p><span className="label label-md label-warning">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 3 ? `${pieData[3].label} - ${pieData[3].value}` : ''}</p>
+              <p><span className="label label-md label-danger">&nbsp;&nbsp;&nbsp;</span> {pieData.length > 4 ? `${pieData[4].label} - ${pieData[4].value}` : ''}</p>
             </div>
             <div className="col-lg-2"></div>
           </div>
@@ -174,7 +174,7 @@ class TeamList extends Component {
                 </tr>
               </thead>
               <tbody>
-                {this.props.teams.map((playerItem, index) => {
+                {this.props.teams.sort(sortByKey('starCount')).map((playerItem, index) => {
                   return (
                     <tr key={index} >
                       <td className="text-left">{playerItem.username}</td>
