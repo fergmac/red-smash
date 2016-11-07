@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { browserHistory, Link } from 'react-router';
-// import { ButtonToolbar, Button } from 'react-bootstrap';
 
 const styles =  {
     buttons: {

@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-// import Team from '../Team';
 import { Pie } from 'react-chartjs';
 
 // a silly little function to add a suffix to the end of a number (e.g. '21' to '21st')

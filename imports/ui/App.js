@@ -1,12 +1,7 @@
 import React from 'react';
 import AccountsUIWrapper from './components/AccountsUIWrapper/';
 import NavBar from './components/NavBar';
-// import Paper from 'material-ui/paper';
 
-// Accounts.ui.config({
-//   passwordSignupFields: 'EMAIL_ONLY_NO_PASSWORD',
-//   loginPath: '/',
-// });
 
 const styles = {
   navContainer: {
@@ -23,7 +18,6 @@ export const App = ({ children }) => (
     <div className="container">
       <div className="row">
         <div className="col-sm-12 text-center">
-          {/* <Navigation /> */}
           {children}
         </div>
       </div>

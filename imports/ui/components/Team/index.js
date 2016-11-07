@@ -8,7 +8,6 @@ export default class Team extends Component {
 
     console.log('here comes player')
     console.log(player)
-    // console.log(JSON.stringify(face))
     return (
       <div className="row">
         <div className="col-xs-12">
