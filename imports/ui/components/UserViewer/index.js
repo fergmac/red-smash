@@ -1,7 +1,8 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import { Modal, Button } from 'react-bootstrap';
 import UserModal from '../UserModal/';
+import { createContainer } from 'meteor/react-meteor-data';
 
 
 export class UserViewer extends Component {
@@ -21,6 +22,7 @@ export class UserViewer extends Component {
   }
 
   render() {
+    console.log(this.props)
     return (
       <div>
         <p>Click to get the full Modal experience!</p>
@@ -38,3 +40,11 @@ export class UserViewer extends Component {
     );
   }
 }
+
+export default createContainer(() => {
+  // Meteor.subscribe('currentUserCompletedChallenges', Meteor.userId());
+  Meteor.subscribe('currentUserCompletedChallenges');
+  return {
+    currentUserCompletedChallenges: Meteor.users.find({}).fetch(),
+  };
+}, UserViewer);
