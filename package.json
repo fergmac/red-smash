@@ -22,5 +22,10 @@
   "devDependencies": {
     "jest": "^17.0.0",
     "react-test-renderer": "^15.3.2"
+  },
+  "jest": {
+    "transform": {
+      "^.+\\.js$": "./tests/babel-jsx-transformer.js"
+    }
   }
 }
