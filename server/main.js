@@ -133,12 +133,6 @@ if (Meteor.isServer) {
         })
         return;
       },
-      incrementStarCount: function () {
-        // return Tickets.remove({PLU: "0000000000000"});
-      },
-      updateChallengeWinners: function () {
-
-      }
     });
   })
 }
