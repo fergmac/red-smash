@@ -49,7 +49,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-    )    
+    )
     Challenges.insert(
       {
         name: "Talent",
@@ -57,7 +57,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-    )    
+    )
     Challenges.insert(
       {
         name: "Tutor",
@@ -65,7 +65,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-    )    
+    )
     Challenges.insert(
       {
         name: "Hugs",
@@ -73,7 +73,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-    )    
+    )
     Challenges.insert(
       {
         name: "Walk/Ride",
@@ -81,12 +81,33 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
+<<<<<<< HEAD
     )    
+=======
+    )
+
+    // for (let i = 0; i < 5; i++) {
+
+    //   var fakeChallenge = {}
+
+    //   fakeChallenge.name = Fake.sentence()
+    //   fakeChallenge.description = Fake.sentence()
+    //   fakeChallenge.starCount = 5
+    //   fakeChallenge.winners = []
+
+    //   Challenges.insert(fakeChallenge);
+    //   }
+>>>>>>> feature-tidy-components
   }
 });
 
 Meteor.publish('teams', function teamsPublication() {
   return Meteor.users.find({ teamId: { $exists: true } }, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
+});
+
+Meteor.publish('currentUserCompletedChallenges', function teamsPublication() {
+  console.log(id)
+  return Meteor.users.find({}, {});
 });
 
 Meteor.publish('challenges', function challengesPublication(id) {

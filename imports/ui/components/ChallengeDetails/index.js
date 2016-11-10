@@ -38,7 +38,7 @@ class ChallengeDetails extends Component {
             userId: Meteor.userId(),
             challengeId: this.props.challenges[0]._id,
             reflection: this.refs.textInput.value,
-            starsEarned: 7, //change this to like below
+            starsEarned: this.props.challenges[0].starCount,
             challengeName: this.props.challenges[0].name,
             username: Meteor.users.find({ _id: Meteor.userId() }).fetch()[0].username
         });
