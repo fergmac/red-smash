@@ -1,0 +1,23 @@
+exports[`test renders the Splasher 1`] = `
+<div
+  style={
+    Object {
+      "alignItems": "center",
+      "display": "flex",
+      "flexFlow": "column nowrap",
+      "height": "500px",
+      "justifyContent": "center",
+    }
+  }>
+  <h1
+    style={
+      Object {
+        "fontSize": "20vw",
+      }
+    }>
+    RED
+    <br />
+    SMASH
+  </h1>
+</div>
+`;
