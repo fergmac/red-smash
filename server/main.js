@@ -81,23 +81,7 @@ Meteor.startup(() => {
         starCount: 5,
         winners: []
       }
-<<<<<<< HEAD
-    )    
-=======
     )
-
-    // for (let i = 0; i < 5; i++) {
-
-    //   var fakeChallenge = {}
-
-    //   fakeChallenge.name = Fake.sentence()
-    //   fakeChallenge.description = Fake.sentence()
-    //   fakeChallenge.starCount = 5
-    //   fakeChallenge.winners = []
-
-    //   Challenges.insert(fakeChallenge);
-    //   }
->>>>>>> feature-tidy-components
   }
 });
 
@@ -149,12 +133,6 @@ if (Meteor.isServer) {
         })
         return;
       },
-      incrementStarCount: function () {
-        // return Tickets.remove({PLU: "0000000000000"});
-      },
-      updateChallengeWinners: function () {
-
-      }
     });
   })
 }

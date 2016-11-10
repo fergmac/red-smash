@@ -2,10 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
-<<<<<<< HEAD:imports/ui/components/TeamList/index.js
-=======
 import PlayersTable from '../PlayersTable';
->>>>>>> feature-tidy-components:imports/ui/components/LeaderBoard/index.js
 import { Pie } from 'react-chartjs';
 import { sortByKey } from '../../../Functions'
 
