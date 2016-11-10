@@ -30,5 +30,6 @@
     "transform": {
       "^.+\\.js$": "./tests/babel-jsx-transformer.js"
     }
-  }
+  },
+  "selenium-webdriver": "2.44.x"
 }

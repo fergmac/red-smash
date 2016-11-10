@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1478915070423" clover="3.2.0">
-  <project timestamp="1478915070423" name="All files">
-    <metrics statements="310" coveredstatements="0" conditionals="720" coveredconditionals="0" methods="192" coveredmethods="0" elements="1222" coveredelements="0" complexity="0" loc="310" ncloc="310" packages="20" files="22" classes="22">
-      <package name="client">
+<coverage generated="1478915192813" clover="3.2.0">
+  <project timestamp="1478915192813" name="All files">
+    <metrics statements="325" coveredstatements="0" conditionals="703" coveredconditionals="0" methods="192" coveredmethods="0" elements="1220" coveredelements="0" complexity="0" loc="325" ncloc="325" packages="22" files="26" classes="26">
+      <package name="red-smash">
+        <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <file name="nightwatch.conf.js" path="/Users/scottclayton/Sites/red-smash/nightwatch.conf.js">
+          <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="red-smash.client">
         <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <file name="main.js" path="/Users/scottclayton/Sites/red-smash/client/main.js">
           <metrics statements="9" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -17,7 +25,22 @@
           <line num="10" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.Functions">
+      <package name="red-smash.e2e">
+        <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+        <file name="demo.js" path="/Users/scottclayton/Sites/red-smash/e2e/demo.js">
+          <metrics statements="6" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="22" count="0" type="stmt"/>
+        </file>
+        <file name="main.js" path="/Users/scottclayton/Sites/red-smash/e2e/main.js">
+          <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        </file>
+      </package>
+      <package name="red-smash.imports.Functions">
         <metrics statements="15" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="3" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/Functions/index.js">
           <metrics statements="15" coveredstatements="0" conditionals="11" coveredconditionals="0" methods="3" coveredmethods="0"/>
@@ -38,7 +61,7 @@
           <line num="31" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.api">
+      <package name="red-smash.imports.api">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="collections.js" path="/Users/scottclayton/Sites/red-smash/imports/api/collections.js">
           <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -47,7 +70,7 @@
           <line num="4" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.startup">
+      <package name="red-smash.imports.startup">
         <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="accounts-config.js" path="/Users/scottclayton/Sites/red-smash/imports/startup/accounts-config.js">
           <metrics statements="2" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -55,7 +78,7 @@
           <line num="3" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.startup.client">
+      <package name="red-smash.imports.startup.client">
         <metrics statements="10" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/startup/client/index.js">
           <metrics statements="1" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
@@ -74,13 +97,13 @@
           <line num="11" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.startup.server">
+      <package name="red-smash.imports.startup.server">
         <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/startup/server/index.js">
           <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         </file>
       </package>
-      <package name="imports.ui">
+      <package name="red-smash.imports.ui">
         <metrics statements="5" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <file name="App.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/App.js">
           <metrics statements="5" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -91,7 +114,7 @@
           <line num="12" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.AccountsUIWrapper">
+      <package name="red-smash.imports.ui.components.AccountsUIWrapper">
         <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="12" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/AccountsUIWrapper/index.js">
           <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="12" coveredmethods="0"/>
@@ -106,7 +129,7 @@
           <line num="19" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.Challenge">
+      <package name="red-smash.imports.ui.components.Challenge">
         <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/Challenge/index.js">
           <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -121,7 +144,7 @@
           <line num="24" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.ChallengeDetails">
+      <package name="red-smash.imports.ui.components.ChallengeDetails">
         <metrics statements="23" coveredstatements="0" conditionals="39" coveredconditionals="0" methods="12" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/ChallengeDetails/index.js">
           <metrics statements="23" coveredstatements="0" conditionals="39" coveredconditionals="0" methods="12" coveredmethods="0"/>
@@ -150,7 +173,7 @@
           <line num="99" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.ChallengeList">
+      <package name="red-smash.imports.ui.components.ChallengeList">
         <metrics statements="14" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="12" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/ChallengeList/index.js">
           <metrics statements="14" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="12" coveredmethods="0"/>
@@ -170,7 +193,7 @@
           <line num="38" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.LeaderBoard">
+      <package name="red-smash.imports.ui.components.LeaderBoard">
         <metrics statements="35" coveredstatements="0" conditionals="47" coveredconditionals="0" methods="17" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/LeaderBoard/index.js">
           <metrics statements="35" coveredstatements="0" conditionals="47" coveredconditionals="0" methods="17" coveredmethods="0"/>
@@ -211,7 +234,7 @@
           <line num="151" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.NavBar">
+      <package name="red-smash.imports.ui.components.NavBar">
         <metrics statements="8" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/NavBar/index.js">
           <metrics statements="8" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -225,7 +248,7 @@
           <line num="31" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.PlayersTable">
+      <package name="red-smash.imports.ui.components.PlayersTable">
         <metrics statements="8" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="11" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/PlayersTable/index.js">
           <metrics statements="8" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="11" coveredmethods="0"/>
@@ -239,7 +262,7 @@
           <line num="33" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.Splash">
+      <package name="red-smash.imports.ui.components.Splash">
         <metrics statements="6" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/Splash/index.js">
           <metrics statements="6" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -251,23 +274,7 @@
           <line num="26" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.Team">
-        <metrics statements="10" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="11" coveredmethods="0"/>
-        <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/Team/index.js">
-          <metrics statements="10" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="11" coveredmethods="0"/>
-          <line num="1" count="0" type="stmt"/>
-          <line num="2" count="0" type="stmt"/>
-          <line num="5" count="0" type="stmt"/>
-          <line num="7" count="0" type="stmt"/>
-          <line num="9" count="0" type="stmt"/>
-          <line num="10" count="0" type="stmt"/>
-          <line num="11" count="0" type="stmt"/>
-          <line num="23" count="0" type="stmt"/>
-          <line num="35" count="0" type="stmt"/>
-          <line num="38" count="0" type="stmt"/>
-        </file>
-      </package>
-      <package name="imports.ui.components.UserModal">
+      <package name="red-smash.imports.ui.components.UserModal">
         <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/UserModal/index.js">
           <metrics statements="9" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="10" coveredmethods="0"/>
@@ -282,7 +289,7 @@
           <line num="37" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="imports.ui.components.UserViewer">
+      <package name="red-smash.imports.ui.components.UserViewer">
         <metrics statements="17" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="13" coveredmethods="0"/>
         <file name="index.js" path="/Users/scottclayton/Sites/red-smash/imports/ui/components/UserViewer/index.js">
           <metrics statements="17" coveredstatements="0" conditionals="33" coveredconditionals="0" methods="13" coveredmethods="0"/>
@@ -305,10 +312,10 @@
           <line num="47" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="server">
-        <metrics statements="40" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="0"/>
+      <package name="red-smash.server">
+        <metrics statements="40" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="7" coveredmethods="0"/>
         <file name="main.js" path="/Users/scottclayton/Sites/red-smash/server/main.js">
-          <metrics statements="40" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="9" coveredmethods="0"/>
+          <metrics statements="40" coveredstatements="0" conditionals="8" coveredconditionals="0" methods="7" coveredmethods="0"/>
           <line num="1" count="0" type="stmt"/>
           <line num="2" count="0" type="stmt"/>
           <line num="3" count="0" type="stmt"/>
@@ -351,7 +358,33 @@
           <line num="134" count="0" type="stmt"/>
         </file>
       </package>
-      <package name="tests.unit.coverage.lcov-report">
+      <package name="red-smash.tests">
+        <metrics statements="17" coveredstatements="0" conditionals="16" coveredconditionals="0" methods="9" coveredmethods="0"/>
+        <file name="babel-jsx-transformer.js" path="/Users/scottclayton/Sites/red-smash/tests/babel-jsx-transformer.js">
+          <metrics statements="6" coveredstatements="0" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="4" count="0" type="stmt"/>
+          <line num="6" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="9" count="0" type="stmt"/>
+          <line num="15" count="0" type="stmt"/>
+        </file>
+        <file name="functions.js" path="/Users/scottclayton/Sites/red-smash/tests/functions.js">
+          <metrics statements="11" coveredstatements="0" conditionals="14" coveredconditionals="0" methods="8" coveredmethods="0"/>
+          <line num="1" count="0" type="stmt"/>
+          <line num="2" count="0" type="stmt"/>
+          <line num="3" count="0" type="stmt"/>
+          <line num="5" count="0" type="stmt"/>
+          <line num="8" count="0" type="stmt"/>
+          <line num="10" count="0" type="stmt"/>
+          <line num="11" count="0" type="stmt"/>
+          <line num="12" count="0" type="stmt"/>
+          <line num="14" count="0" type="stmt"/>
+          <line num="18" count="0" type="stmt"/>
+          <line num="19" count="0" type="stmt"/>
+        </file>
+      </package>
+      <package name="red-smash.tests.unit.coverage.lcov-report">
         <metrics statements="78" coveredstatements="0" conditionals="306" coveredconditionals="0" methods="46" coveredmethods="0"/>
         <file name="prettify.js" path="/Users/scottclayton/Sites/red-smash/tests/unit/coverage/lcov-report/prettify.js">
           <metrics statements="1" coveredstatements="0" conditionals="284" coveredconditionals="0" methods="29" coveredmethods="0"/>
