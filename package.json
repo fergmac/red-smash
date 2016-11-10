@@ -28,8 +28,16 @@
   },
   "jest": {
     "transform": {
-      "^.+\\.js$": "./tests/babel-jsx-transformer.js"
-    }
+      "^.+\\.js$": "./tests/unit/babel-jsx-transformer.js"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules"
+    ],
+    "coverageDirectory": "./tests/unit/coverage"
   },
   "selenium-webdriver": "2.44.x"
 }
