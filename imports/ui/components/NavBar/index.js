@@ -26,8 +26,8 @@ export default class NavBar extends Component {
             <span className="navbar-brand" href="#"><AccountsUIWrapper /></span>
           </div>
           <ul className="nav navbar-nav">
-            <li><Link to="/leaderboard">Leaderboard</Link></li>
-            <li><Link to="/challenges">Challenges</Link></li>
+            <li><Link to="/leaderboard" activeStyle={{ textDecoration: 'underline' }}>Leaderboard</Link></li>
+            <li><Link to="/challenges" activeStyle={{ textDecoration: 'underline' }}>Challenges</Link></li>
           </ul>
         </div>
       </nav>
