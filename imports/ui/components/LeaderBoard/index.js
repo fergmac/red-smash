@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import PlayersTable from '../PlayersTable';
 import { Pie } from 'react-chartjs';
-import { sortByKey } from '../../../Functions'
+import { sortByKey } from '../../../functions'
 
 const themeColours = {
   default: '#9B121E',

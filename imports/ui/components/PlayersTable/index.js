@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Meteor } from 'meteor/meteor';
-import { sortByKey, numberSuffixer } from '../../../Functions'
+import { sortByKey, numberSuffixer } from '../../../functions'
 
 export default class PlayersTable extends Component {
   render() {
