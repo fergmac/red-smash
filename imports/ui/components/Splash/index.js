@@ -4,7 +4,6 @@ import Paper from 'material-ui/paper';
 const styles = {
   wrapper: {
     height: '500px',
-    // margin: '-70px -8px 0px -8px',
     display: 'flex',
     flexFlow: 'column nowrap',
     justifyContent: 'center',
@@ -12,16 +11,13 @@ const styles = {
   },
   giant: {
     fontSize: '20vw',
-    // transform: 'rotate(45deg)'
   },
 }
 
 export default class Splash extends Component {
   render() {
     return (
-      <div style={styles.wrapper}>
-        <h1 style={styles.giant}>RED<br />SMASH</h1>
-      </div>
+      <h1 style={styles.giant}>RED<br />SMASH</h1>
     );
   }
 }
