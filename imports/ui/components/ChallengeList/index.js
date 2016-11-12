@@ -23,12 +23,10 @@ class ChallengeList extends Component {
           </tbody>
         </table>
       </div>
-
     );
-
   };
-
 }
+
 ChallengeList.propTypes = {
   challenges: PropTypes.array.isRequired,
 }

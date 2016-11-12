@@ -4,19 +4,6 @@ import ReactDOM from 'react-dom';
 import { browserHistory, Link } from 'react-router';
 import AccountsUIWrapper from '../AccountsUIWrapper/';
 
-const styles = {
-  buttons: {
-    display: 'flex',
-    flexFlow: 'row nowrap',
-    justifyContent: 'center',
-    marginBottom: '5rem',
-  },
-  btnContainer: {
-    marginLeft: '5px',
-    marginRight: '5px'
-  }
-
-}
 export default class NavBar extends Component {
   render() {
     return (

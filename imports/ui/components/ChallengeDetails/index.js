@@ -16,8 +16,6 @@ const styles = {
 class ChallengeDetails extends Component {
   handleSubmit(event) {
     event.preventDefault();
-    console.log(this.refs);
-
     Meteor.call('updateUserChallenges', {
       userId: Meteor.userId(),
       challengeId: this.props.challenges[0]._id,
@@ -26,7 +24,6 @@ class ChallengeDetails extends Component {
       challengeName: this.props.challenges[0].name,
       username: Meteor.users.find({ _id: Meteor.userId() }).fetch()[0].username
     });
-
     browserHistory.push('/leaderboard');
   }
 
@@ -83,7 +80,6 @@ ChallengeDetails.propTypes = {
 }
 
 export default createContainer(({ params }) => {
-  console.log(Meteor.users);
   Meteor.subscribe('challenges', params.id);
   const challenges = Challenges.find({ _id: params.id }).fetch() || []; // pass params.id which also gets passed into publication so that we 
   return {                                                              // can get the challenge details of the specific challenge id Tracker magic going on here

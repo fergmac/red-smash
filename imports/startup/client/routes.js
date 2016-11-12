@@ -1,6 +1,5 @@
 import React from 'react';
 import { Router, Route, IndexRoute, browserHistory } from 'react-router';
-
 import Splash from '../../ui/components/Splash/';
 import { App } from '../../ui/App';
 import ChallengeList from '../../ui/components/ChallengeList';
@@ -19,4 +18,3 @@ export const renderRoutes = () => (
     </Route>
   </Router>
 );
-

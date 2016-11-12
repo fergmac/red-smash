@@ -3,13 +3,13 @@ import { Challenges } from '../imports/api/collections.js'
 import { Accounts } from 'meteor/accounts-base';
 
 Accounts.onCreateUser((options, user) => {
-
   user.challenges = []
   user.starCount = 0
   user.teamId = 'Unassigned'
 
   return user;
 });
+
 Meteor.startup(() => {
   // code to run on server at startup
   if (!Meteor.users.find().count()) {
@@ -129,7 +129,6 @@ if (Meteor.isServer) {
               completedAt: new Date(),
             }
           }
-
         })
         return;
       },

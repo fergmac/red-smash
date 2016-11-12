@@ -22,11 +22,9 @@ export class UserViewer extends Component {
   }
 
   render() {
-    console.log(this.props)
     return (
       <div>
         <p>Click to get the full Modal experience!</p>
-
         <Button
           bsStyle="primary"
           bsSize="large"
@@ -34,7 +32,6 @@ export class UserViewer extends Component {
           >
           View Profile
         </Button>
-
         <UserModal close={this.close.bind(this)} showModal={this.state.showModal} />
       </div>
     );
