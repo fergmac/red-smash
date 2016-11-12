@@ -2,7 +2,9 @@
   "name": "meteor-1.4.3",
   "private": true,
   "scripts": {
-    "start": "meteor run"
+    "start": "meteor run",
+    "e2e-setup": "concurrently 'npm start' 'webdriver-manager start'",
+    "e2e": "nightwatch"
   },
   "dependencies": {
     "bcrypt": "^0.8.7",
@@ -20,12 +22,22 @@
     "react-tap-event-plugin": "^1.0.0"
   },
   "devDependencies": {
+    "babel-plugin-add-module-exports": "^0.2.1",
     "jest": "^17.0.0",
     "react-test-renderer": "^15.3.2"
   },
   "jest": {
     "transform": {
-      "^.+\\.js$": "./tests/babel-jsx-transformer.js"
-    }
-  }
+      "^.+\\.js$": "./tests/unit/babel-jsx-transformer.js"
+    },
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "node_modules"
+    ],
+    "coverageDirectory": "./tests/unit/coverage"
+  },
+  "selenium-webdriver": "2.44.x"
 }

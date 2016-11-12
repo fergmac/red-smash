@@ -78,7 +78,7 @@ class LeaderBoard extends Component {
   // the code below is an example of a purely functional way of accomplishing above… BUT…
   // it's not complete because of an error with tracker's return on the currentUser being
   // inconsistent with the teams subscription (which comes from the users collection)…
-  // this will have to be fixed, so let this server as a starting point :
+  // this will have to be fixed, so let this serve as a starting point :
   // _teamStarsFinder() {
   //   // TODO: this should get fixed so that the current user works… booo… tracker
 
