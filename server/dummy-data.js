@@ -1,14 +1,5 @@
 import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../imports/api/collections.js'
-import { Accounts } from 'meteor/accounts-base';
-
-Accounts.onCreateUser((options, user) => {
-  user.challenges = []
-  user.starCount = 0
-  user.teamId = 'Unassigned'
-
-  return user;
-});
 
 Meteor.startup(() => {
   // code to run on server at startup
@@ -84,54 +75,3 @@ Meteor.startup(() => {
     )
   }
 });
-
-Meteor.publish('teams', function teamsPublication() {
-  return Meteor.users.find({ teamId: { $exists: true } }, { fields: { 'username': 1, 'starCount': 1, 'teamId': 1 } });
-});
-
-Meteor.publish('currentUserCompletedChallenges', function teamsPublication() {
-  console.log(id)
-  return Meteor.users.find({}, {});
-});
-
-Meteor.publish('challenges', function challengesPublication(id) {
-  if (id) {
-    return Challenges.find({ _id: id });
-  } else {
-    return Challenges.find({});
-  }
-});
-
-if (Meteor.isServer) {
-  Meteor.startup(function () {
-    return Meteor.methods({
-      updateUserChallenges: function (myChallenge) {
-        console.log(myChallenge);
-        Meteor.users.update({ _id: myChallenge.userId }, {
-          $push: {
-            challenges: {
-              reflection: myChallenge.reflection,
-              starsEarned: myChallenge.starsEarned,
-              challengeName: myChallenge.challengeName,
-              completedAt: new Date(),
-            }
-          }
-        })
-        Meteor.users.update({ _id: myChallenge.userId }, {
-          $inc: { starCount: myChallenge.starsEarned }
-        })
-        Challenges.update({ _id: myChallenge.challengeId }, {
-          $push: {
-            winners: {
-              username: myChallenge.username,
-              userId: myChallenge.userId,
-              starsEarned: myChallenge.starsEarned,
-              completedAt: new Date(),
-            }
-          }
-        })
-        return;
-      },
-    });
-  })
-}
