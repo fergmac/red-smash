@@ -38,7 +38,7 @@ export const sortByKey = (key, order = 1) => (a, b) => {
   }
 }
 
-  //  
+
   // it will be necessary to refactor this at some point, since this of course won't scale
   // an idea might be generating a new Mongo collection called "teams" or something, and
   // get it to regenerate each time there's a change to the users collection, or just find
