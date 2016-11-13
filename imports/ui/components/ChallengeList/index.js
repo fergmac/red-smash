@@ -3,7 +3,14 @@ import { createContainer } from 'meteor/react-meteor-data';
 import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import { Challenges } from '../../../api/collections.js'
-import Challenge from '../Challenge';
+import { Link } from 'react-router';
+
+const styles = {
+  challengeList: {
+    color: '#f4e17d',
+    textDecoration: 'none',
+  }
+}
 
 class ChallengeList extends Component {
   render() {
@@ -12,23 +19,30 @@ class ChallengeList extends Component {
         <h1>Challenges</h1>
         <table className="table table-striped">
           <thead>
-            <tr className="face">
+            <tr>
               <th className="text-center" className="text-left">Challenge</th>
               <th className="text-center" className="text-left">Description</th>
               <th className="text-center">Stars</th>
             </tr>
           </thead>
           <tbody className="text-left">
-            {this.props.challenges.map((challenge, index) => (<Challenge challenge={challenge} key={index} />))}
+            {
+              this.props.challenges.map((challenge, index) => {
+                return (
+                  <tr key={index}>
+                    <td><Link to={`/challenges/id/${challenge._id}`} style={styles.challengeList} >{challenge.name}</Link></td>
+                    <td>{challenge.description}</td>
+                    <td className="text-center">{challenge.starCount}<span style={styles.challengeList}>✯</span></td>
+                  </tr>)
+              })
+            }
           </tbody>
         </table>
       </div>
-
     );
-
   };
-
 }
+
 ChallengeList.propTypes = {
   challenges: PropTypes.array.isRequired,
 }

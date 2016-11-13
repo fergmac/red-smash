@@ -30,7 +30,7 @@
     "transform": {
       "^.+\\.js$": "./tests/unit/babel-jsx-transformer.js"
     },
-    "collectCoverage": true,
+    "collectCoverage": false,
     "collectCoverageFrom": [
       "**/*.js"
     ],

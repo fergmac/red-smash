@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom';
 import { Meteor } from 'meteor/meteor';
 import PlayersTable from '../PlayersTable';
 import { Pie } from 'react-chartjs';
-import { sortByKey } from '../../../Functions'
+import { sortByKey } from '../../../functions'
 
 const themeColours = {
   default: '#9B121E',
@@ -60,21 +60,6 @@ class LeaderBoard extends Component {
     return teamStats
   }
 
-  _pieFilling(teamData) {
-    const pieData = teamData.map((team, index) => {
-      return {
-        label: team.teamId,
-        color: chartColours[index],
-        highlight: chartColours[index],
-        value: team.starCount,
-        labelColor: 'white',
-        labelFontSize: '16px'
-      }
-    })
-    return pieData
-  }
-
-
   // the code below is an example of a purely functional way of accomplishing above… BUT…
   // it's not complete because of an error with tracker's return on the currentUser being
   // inconsistent with the teams subscription (which comes from the users collection)…
@@ -103,13 +88,23 @@ class LeaderBoard extends Component {
   //   return teamStats.sort(sortByKey('starCount'))
   // }
 
-
-
+  _pieFilling(teamData) {
+    const pieData = teamData.map((team, index) => {
+      return {
+        label: team.teamId,
+        color: chartColours[index],
+        highlight: chartColours[index],
+        value: team.starCount,
+        labelColor: 'white',
+        labelFontSize: '16px'
+      }
+    })
+    return pieData
+  }
 
   render() {
     const teamData = this._teamStarsFinder()
     const pieData = this._pieFilling(teamData)
-    console.log(pieData)
 
     return (
       <div className="container">
