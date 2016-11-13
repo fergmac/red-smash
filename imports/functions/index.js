@@ -2,9 +2,15 @@
 
 // a silly little function to add a suffix to the end of a number (e.g. '21' to '21st')
 export const numberSuffixer = (num) => {
-  switch ((num % 100).toString().substr(0, 1)) {
+  if (num.toString().match(/[^\d]/) || num.length>100000000000) {
+    return num
+  }
+
+  const modulo100 = (num % 100).toString()
+
+  switch (modulo100.substr(0, 1)) {
     case '1':
-      if (num > 1) {
+      if (num > 1 && modulo100.length>1) {
         return num + 'th'
       }
     default:
