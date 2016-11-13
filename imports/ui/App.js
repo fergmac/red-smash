@@ -1,13 +1,6 @@
 import React from 'react';
 import NavBar from './components/NavBar';
 
-
-const styles = {
-  navContainer: {
-    minHeight: '200px',
-  },
-}
-
 export const App = ({ children }) => (
   <div>
     <NavBar />

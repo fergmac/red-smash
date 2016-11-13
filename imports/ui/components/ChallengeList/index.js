@@ -19,7 +19,7 @@ class ChallengeList extends Component {
         <h1>Challenges</h1>
         <table className="table table-striped">
           <thead>
-            <tr className="face">
+            <tr>
               <th className="text-center" className="text-left">Challenge</th>
               <th className="text-center" className="text-left">Description</th>
               <th className="text-center">Stars</th>

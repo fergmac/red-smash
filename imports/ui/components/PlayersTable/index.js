@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import { Meteor } from 'meteor/meteor';
 import { sortByKey, numberSuffixer } from '../../../functions'
 
 export default class PlayersTable extends Component {
@@ -7,7 +6,7 @@ export default class PlayersTable extends Component {
     return (
       <table className="table table-striped">
         <thead>
-          <tr className="face">
+          <tr>
             <th className="text-left">Username</th>
             <th className="text-left">Team</th>
             <th className="text-left">Stars</th>

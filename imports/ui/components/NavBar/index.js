@@ -1,7 +1,5 @@
-import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import ReactDOM from 'react-dom';
-import { browserHistory, Link } from 'react-router';
+import React, { Component } from 'react';
+import { Link } from 'react-router';
 import AccountsUIWrapper from '../AccountsUIWrapper/';
 
 export default class NavBar extends Component {
