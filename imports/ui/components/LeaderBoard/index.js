@@ -48,8 +48,8 @@ class LeaderBoard extends Component {
   }
 
   render() {
-    console.log(this)
     const teamData = teamStarsFinder(this.props.teams)
+    console.log(teamData)
     const pieData = this._pieFilling(teamData)
 
     return (
