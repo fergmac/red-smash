@@ -1,56 +1,21 @@
-import React, { Component, PropTypes } from 'react';
-import { createContainer } from 'meteor/react-meteor-data';
-import ReactDOM from 'react-dom';
-import { Meteor } from 'meteor/meteor';
-import PlayersTable from '../PlayersTable';
-import { Pie } from 'react-chartjs';
-import { sortByKey, teamStarsFinder } from '../../../functions'
-
-const themeColours = {
-  default: '#9B121E',
-  success: '#CB3B46',
-  info: '#F0AD4E',
-  danger: '#F0D64E',
-  warning: '#222222',
-}
-
-const chartColours = [
-  themeColours.default,
-  themeColours.success,
-  themeColours.info,
-  themeColours.danger,
-  themeColours.warning,
-]
+import React, { Component, PropTypes } from 'react'
+import { createContainer } from 'meteor/react-meteor-data'
+import ReactDOM from 'react-dom'
+import { Meteor } from 'meteor/meteor'
+import PlayersTable from '../PlayersTable'
+import { Pie } from 'react-chartjs'
+import { sortByKey, teamStarsFinder, pieFilling } from '../../../functions/'
 
 // global options variable
 const pieOptions = {
   responsive: true,
   scaleBeginAtZero: true,
-  // legend.labels.generateLabels(),
-  // legend.onClick()
 }
 
-
-
 class LeaderBoard extends Component {
-  _pieFilling(teamData) {
-    const pieData = teamData.map((team, index) => {
-      return {
-        label: team.teamId,
-        color: chartColours[index],
-        highlight: chartColours[index],
-        value: team.starCount,
-        labelColor: 'white',
-        labelFontSize: '16px'
-      }
-    })
-    return pieData
-  }
-
   render() {
     const teamData = teamStarsFinder(this.props.teams)
-    console.log(teamData)
-    const pieData = this._pieFilling(teamData)
+    const pieData = pieFilling(teamData)
 
     return (
       <div className="container">
@@ -75,7 +40,7 @@ class LeaderBoard extends Component {
         </div>
         <div className="row">
           <div className="col-md-12 offset-lg-6">
-          <PlayersTable players={this.props.teams} />
+            <PlayersTable players={this.props.teams} />
           </div>
         </div>
       </div>
