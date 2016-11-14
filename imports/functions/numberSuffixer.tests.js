@@ -1,10 +1,9 @@
 import { Meteor } from 'meteor/meteor'
 import { chai } from 'meteor/practicalmeteor:chai'
 import { numberSuffixer } from './'
-import { sortByKey } from './'
 
 if (Meteor.isClient) {
-  describe('numberSuffixer', function () {
+  describe('reusable functions - numberSuffixer', function () {
     it('converts the number 721 to \'721st\'', function () {
       chai.assert.equal(numberSuffixer(721), '721st')
     })
@@ -46,7 +45,7 @@ if (Meteor.isClient) {
     })
 
     it('returns an object that is equal to the input (using deepEqual)', function () {
-      chai.assert.deepEqual(numberSuffixer({face: 'feet'}), {face: 'feet'})
+      chai.assert.deepEqual(numberSuffixer({ face: 'feet' }), { face: 'feet' })
     })
   })
 }
