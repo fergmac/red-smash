@@ -1,4 +1,5 @@
 node_modules/
 .DS_Store
+tests/e2e/reports
 tests/e2e/screenshots
 tests/unit/coverage
