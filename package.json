@@ -29,5 +29,10 @@
     ],
     "coverageDirectory": "./tests/unit/coverage"
   },
-  "selenium-webdriver": "2.44.x"
+  "selenium-webdriver": "2.44.x",
+  "devDependencies": {
+    "enzyme": "^2.6.0",
+    "react": "^15.3.2",
+    "react-addons-test-utils": "^15.3.2"
+  }
 }
