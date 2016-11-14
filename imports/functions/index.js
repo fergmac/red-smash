@@ -1,3 +1,5 @@
+import { chartColours } from  '../ui/theme'
+
 // A file for importing some commonly used functions
 
 // a silly little function to add a suffix to the end of a number (e.g. '21' to '21st')
@@ -92,3 +94,18 @@ export const teamStarsFinder = (teamsInput) => {
   //     }, distinctTeams)
   //   return teamStats.sort(sortByKey('starCount'))
   // }
+
+  // a function to generate the contents of a pie chart
+export const pieFilling = (teamData) => {
+  const pieData = teamData.map((team, index) => {
+    return {
+      label: team.teamId,
+      color: chartColours[index],
+      highlight: chartColours[index],
+      value: team.starCount,
+      labelColor: 'white',
+      labelFontSize: '16px'
+    }
+  })
+  return pieData
+}
